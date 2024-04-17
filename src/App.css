@@ -1,0 +1,16 @@
+body, html {
+  height: 100%;
+  margin: 0; 
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+h1 { 
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
