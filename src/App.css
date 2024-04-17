@@ -10,7 +10,47 @@ body {
   background-size: cover
 }
 
-h1 { 
+.app-background {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./images/campfire-background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+h1 {
   font-family: Arial, sans-serif;
   color: #ffffff;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.todo-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
 }
