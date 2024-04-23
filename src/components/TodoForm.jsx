@@ -25,7 +25,7 @@ function TodoForm({ handleCreateTodo }) {
 
   return (
     <form onSubmit={handleSubmitForm}>
-			<label for="title-input"> Enter a new todo item:</label>
+			<label htmlFor="title-input"> Enter a new todo item:</label>
 			<input 
 				id={"title-input"}
 				type="text" 
