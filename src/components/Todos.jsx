@@ -2,7 +2,13 @@ import Todo from "./Todo"
 
 function Todos({ todos, handleDeleteTodo, handleToggleTodo }) {
 	const sortByTitle = (todoA, todoB) => {
-		if (todoA.title < todoB.title) {
+		const titleA = todoA.title.toLowerCase();
+		const titleB = todoB.title.toLowerCase();
+		if (titleA < titleB) {
+			return -1;
+		} else if (titleA > titleB) {
+			return 1;
+		} else if (todoA.title < todoB.title) {
 			return -1;
 		} else if (todoA.title > todoB.title) {
 			return 1;
