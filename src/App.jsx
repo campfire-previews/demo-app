@@ -12,10 +12,7 @@ function App() {
 		{ id: "4", title: "Graham crackers", complete: false },
 	]);
 
-	console.log("before useEffect");
-
 	useEffect(() => {
-		console.log("inside useEffect");
 		new CampfireSDK();
 	}, [])
 
@@ -45,7 +42,6 @@ function App() {
 		})
 	}
 
-	console.log("right before rendering app.jsx")
   return (
     <main>
 			<h1>Demo App</h1>
