@@ -14,8 +14,8 @@ env:
   PORT: 8080
   ROLE_ARN: arn:aws:iam::903035593422:role/CampfireECSTaskExecutionRole
   LB_NAME: campfire
-  SUBNET_NAME: subnet-01c4fdc08e544242a
-  SG_NAME: sg-084b00cce822002e4
+  SUBNET_NAME: subnet-037753d31df2d88b6
+  SG_NAME: sg-01f0c9ff3bcdc87cb
 
 jobs:
   update:

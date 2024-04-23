@@ -8,7 +8,7 @@ env:
   PROJECT: ${{ github.event.repository.name }}
   PR_NUMBER: ${{ github.event.number }}
   AWS_REGION: us-east-2
-  BUCKET: campfire-previews-a9e82d48-6991-4ea9-8548-9b6659e20986
+  BUCKET: campfire-previews-e2258960-20d5-4c03-b638-5892542ca7cf
   ECR_REPOSITORY: campfire-ecr
   ECS_CLUSTER: demo-app
   LB_NAME: campfire
