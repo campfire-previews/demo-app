@@ -6,7 +6,7 @@ function TodoListHeader({ handleCompleteAll }) {
 
   return (
 		<div id="todo-list-header">
-			<h1>My personal todo list </h1>
+			<h1>Packing List </h1>
 			<button onClick={handleOnClick}>Complete All</button>
 		</div>
   );
