@@ -100,6 +100,12 @@ runs:
         --load-balancer-arn $ALB_ARN \
         --query 'Listeners[?Port==`443`] | [0].ListenerArn' \
         --output text)
+                                                                             script.sh                                                                                         
+        CURRENT_PRIORITY=$(aws elbv2 describe-rules \
+        --listener-arn $LISTENER_ARN \
+        --query 'length(Rules[].[Priority])')
+
+        NEW_PRIORITY=$(($CURRENT_PRIORITY + 1))
 
         cat << RULES >> ./rules-conditions.json
         [
@@ -113,7 +119,7 @@ runs:
         RULE_ARN=$(aws elbv2 create-rule \
         --listener-arn $LISTENER_ARN \
         --conditions file://./rules-conditions.json \
-        --priority $PR_NUMBER \
+        --priority $NEW_PRIORITY \
         --actions Type=forward,TargetGroupArn=$TARGET_GROUP_ARN \
         --query 'Rules[0].RuleArn' \
         --output text)
