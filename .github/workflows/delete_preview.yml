@@ -1,0 +1,44 @@
+name: "Delete Preview App"
+on:
+  pull_request:
+    types:
+      - closed
+
+env:
+  PROJECT: ${{ github.event.repository.name }}
+  PR_NUMBER: ${{ github.event.number }}
+  AWS_REGION: us-east-2
+  BUCKET: campfire-previews-a9e82d48-6991-4ea9-8548-9b6659e20986
+  ECR_REPOSITORY: campfire-ecr
+  ECS_CLUSTER: demo-app
+  LB_NAME: campfire
+
+jobs:
+  teardown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: set ECR Registry Environment Variable
+        run: |
+          echo "ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}" >> $GITHUB_ENV
+
+      - name: Delete App on Amazon ECS
+        id: delete-preview
+        uses: ./.github/actions/delete-preview
+
+      - name: Delete Session Replays on Amazon S3
+        id: delete-s3
+        uses: ./.github/actions/delete-s3

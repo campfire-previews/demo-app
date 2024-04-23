@@ -1,0 +1,21 @@
+name: Delete S3 Objects
+description: Deletes all S3 objects for the pull request
+
+runs:
+  using: "composite"
+  steps:
+    - name: List S3 objects in JSON and
+      run: |
+        touch delete.json
+
+        aws s3api list-objects \
+          --bucket $BUCKET \
+          --prefix "$PROJECT-$PR_NUMBER" \
+          --query '{Objects: Contents[].{Key: Key}}' \
+          > delete.json
+
+        aws s3api delete-objects \
+          --bucket $BUCKET \
+          --delete file://delete.json || \
+          echo "No Campfire data to delete in S3" && continue
+      shell: bash
