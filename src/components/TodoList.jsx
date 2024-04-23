@@ -20,10 +20,6 @@ function TodoList({
 				handleDeleteTodo={handleDeleteTodo} 
 				handleToggleTodo={handleToggleTodo} 
 			/>
-			
-			<TodoForm 
-				handleCreateTodo={handleCreateTodo} 
-			/>
     </div>
   );
 }
