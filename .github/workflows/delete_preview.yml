@@ -10,7 +10,7 @@ env:
   AWS_REGION: us-east-2
   BUCKET: campfire-previews-e2258960-20d5-4c03-b638-5892542ca7cf
   ECR_REPOSITORY: campfire-ecr
-  ECS_CLUSTER: demo-app
+  ECS_CLUSTER: demo-app-3
   LB_NAME: campfire
 
 jobs:
