@@ -1,16 +1,29 @@
-import React from 'react';
-import '../App.css';
+import Todos from "./Todos";
+import TodoForm from "./TodoForm";
+import TodoListHeader from "./TodoListHeader";
 
-function TodoList() {
+function TodoList({ 
+	todos, 
+	handleCreateTodo, 
+	handleDeleteTodo,
+	handleToggleTodo,
+	handleCompleteAll, 
+	}) {
   return (
-    <div className="todo-container">
-      <h2>Todo List</h2>
-      <ul className="todo-list">
-        <li>Sleeping bags</li>
-        <li>Tent</li>
-        <li>Marshmallows</li>
-        <li>Graham crackers</li>
-      </ul>
+    <div id="todo-list-container">
+      <TodoListHeader 
+				handleCompleteAll={handleCompleteAll} 
+			/>
+      
+			<Todos 
+				todos={todos} 
+				handleDeleteTodo={handleDeleteTodo} 
+				handleToggleTodo={handleToggleTodo} 
+			/>
+			
+			<TodoForm 
+				handleCreateTodo={handleCreateTodo} 
+			/>
     </div>
   );
 }
