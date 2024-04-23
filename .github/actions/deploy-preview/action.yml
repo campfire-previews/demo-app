@@ -100,7 +100,7 @@ runs:
         --load-balancer-arn $ALB_ARN \
         --query 'Listeners[?Port==`443`] | [0].ListenerArn' \
         --output text)
-                                                                             script.sh                                                                                         
+
         CURRENT_PRIORITY=$(aws elbv2 describe-rules \
         --listener-arn $LISTENER_ARN \
         --query 'length(Rules[].[Priority])')

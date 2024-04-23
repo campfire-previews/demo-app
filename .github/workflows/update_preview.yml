@@ -1,4 +1,4 @@
-name: "Update Preview App"
+name: 'Update Preview App'
 on:
   pull_request:
     types: [synchronize]
@@ -10,7 +10,7 @@ env:
   DOMAIN: rachelel.xyz
   AWS_REGION: us-east-2
   ECR_REPOSITORY: campfire-ecr
-  ECS_CLUSTER: demo-app
+  ECS_CLUSTER: demo-app-3
   PORT: 8080
   ROLE_ARN: arn:aws:iam::903035593422:role/CampfireECSTaskExecutionRole
   LB_NAME: campfire
@@ -69,5 +69,5 @@ jobs:
           github-token: ${{ steps.app-token.outputs.token }}
           repository: ${{ github.repository }}
           number: ${{ env.PR_NUMBER }}
-          message: "| Status | Message |\n|--------|-------|\n| \U00002757 | Your preview has been updated with the lastest commit. Visit your super cool amazing preview app here ${{ steps.deploy-app.outputs.url }} |"
+          message: "| Status | Message |\n|--------|-------|\n| \U0001f525 | Your Campfire has started successfully. Visit your deploy preview here: ${{ steps.deploy-app.outputs.url }} |"
           append: false

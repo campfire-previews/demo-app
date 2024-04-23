@@ -13,7 +13,7 @@ env:
   DOMAIN: rachelel.xyz
   AWS_REGION: us-east-2
   ECR_REPOSITORY: campfire-ecr
-  ECS_CLUSTER: demo-app
+  ECS_CLUSTER: demo-app-3
   PORT: 8080
   ROLE_ARN: arn:aws:iam::903035593422:role/CampfireECSTaskExecutionRole
   LB_NAME: campfire
@@ -83,5 +83,5 @@ jobs:
           github-token: ${{ steps.app-token.outputs.token }}
           repository: ${{ github.repository }}
           number: ${{ env.PR_NUMBER }}
-          message: "| \U0001f525 | Your Campfire has been started successfully. Visit your deploy preview here: ${{ steps.deploy-preview-app.outputs.url }} |"
+          message: "| \U0001f525 | Your Campfire has started successfully. Visit your deploy preview here: ${{ steps.deploy-preview-app.outputs.url }} |"
           append: true
