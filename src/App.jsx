@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import backgroundImage from './images/campfire-background.jpg';
 import TodoList from './components/TodoList'; 
+import CampfireSDK from "campfire-sdk";
 import './App.css';
 
 function App() {
@@ -10,6 +11,11 @@ function App() {
 		{ id: "3", title: "Marshmallows", complete: false },
 		{ id: "4", title: "Graham crackers", complete: false },
 	]);
+
+	useEffect(() => {
+		new CampfireSDK();
+	}, [])
+
 
 	const handleCreateTodo = (newTodo) => {
 		setTodos(todos => todos.concat(newTodo));
